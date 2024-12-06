@@ -12,7 +12,7 @@
 // import wiki from 'wikijs';
 import * as api from '../api.js';
 const emotionsJSON = import("../assets/emotions.json");
-const emotions = (await emotionsJSON).default;
+// const emotions = emotionsJSON;
 
 
 export default {
@@ -46,6 +46,9 @@ export default {
     },
 
     async update() {
+      // const emotions = JSON.parse((await emotionsJSON)).default
+      const emotions = (await emotionsJSON).default
+      // console.log(emotions.default)
       async function rand() {
         const rand = Math.floor(Math.random() * emotions.length)
         return emotions[rand]
