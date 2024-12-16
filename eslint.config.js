@@ -1,7 +1,13 @@
 import js from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
+import globals from "globals";
 
 export default [
+  {
+    languageOptions: {
+      globals: globals.jest
+    }
+  },
   {
     name: "app/files-to-lint",
     files: ["**/*.{js,mjs,jsx,vue}"],
@@ -19,5 +25,5 @@ export default [
       semi: 2,
       quotes: ["error", "double"]
     }
-  }
+  },
 ];

@@ -6,7 +6,7 @@ import { RouterView } from 'vue-router'
   <nav>👉 kak reagirovat 👈</nav>
   <RouterView />
   <footer>
-    © fusionvibes666 2025
+    © fusionvibes666 2025;
   </footer>
 </template>
 

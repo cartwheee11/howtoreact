@@ -1,78 +1,79 @@
 <template>
   <section class="container">
-
     <div class="desc-block">
       <h2>Ваша эмоция: <br>{{ randomEmotion.toLowerCase() }}</h2>
-      <p>Используй ее, если не знаешь, какую эмоцию заюзать в данной весьма затруднительной ситуации</p>
+      <p>
+        Используй ее, если не знаешь, какую эмоцию заюзать в данной весьма
+        затруднительной ситуации
+      </p>
       <br>
-      <p><button @click="update">Повторить</button></p>
+      <p>
+        <button @click="update">
+          Повторить
+        </button>
+      </p>
     </div>
-
-
 
     <div class="desc-block">
       <h2>{{ randomEmotion }} ✨</h2>
-      <p>{{ desc }}</p><br>
-
+      <p>{{ desc }}</p>
+      <br>
     </div>
   </section>
 </template>
 
 <script>
-
-
 // import wiki from 'wikijs';
-import * as api from '../api.js';
+import * as api from "../api.js";
 const emotionsJSON = import("../assets/emotions.json");
 // const emotions = emotionsJSON;
-
 
 export default {
   data: () => {
     return {
       emotions: [],
-      randomEmotion: 'loading...',
-      desc: ''
-    }
-  },
-
-  async mounted() {
-    this.update('Злость');
+      randomEmotion: "loading...",
+      desc: "",
+    };
   },
 
   watch: {
     randomEmotion() {
-      this.desc = 'Загрузка...'
+      this.desc = "Загрузка...";
       this.getWiki();
-    }
+    },
+  },
+
+  async mounted() {
+    this.update("Злость");
   },
 
   methods: {
     async getWiki() {
       const response = await api.getWiki(this.randomEmotion);
-      const result = JSON.parse(response)
+      const result = JSON.parse(response);
       if (!result) {
-        this.desc = 'К сожалению, нам не удалось найти описание данной эмоции на Википедии'
-      }
-      this.desc = result;
+        this.desc =
+          "К сожалению, нам не удалось найти описание данной эмоции на Википедии";
+      } this.desc = result;
     },
 
     async update(emotion) {
       if (!emotion) {
-        this.randomEmotion = emotion
+        this.randomEmotion = emotion;
       }
 
-      console.log('&&&')
-      const emotions = (await emotionsJSON).default
+      console.log("&&&");
+      const emotions = (await emotionsJSON).default;
       async function rand() {
-        const rand = Math.floor(Math.random() * emotions.length)
-        return emotions[rand]
+        const rand = Math.floor(Math.random() * emotions.length);
+        return emotions[rand];
       }
 
       this.randomEmotion = await rand();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -108,7 +109,6 @@ h1 {
   line-height: 1.25em;
   font-family: Montserrat;
   margin-bottom: 0px;
-
 }
 
 h2 {
