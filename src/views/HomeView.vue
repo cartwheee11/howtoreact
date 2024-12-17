@@ -8,7 +8,7 @@
       </p>
       <br>
       <p>
-        <button @click="update">
+        <button @click="update(null)">
           Повторить
         </button>
       </p>
@@ -45,7 +45,7 @@ export default {
   },
 
   async mounted() {
-    this.update("Злость");
+    this.update();
   },
 
   methods: {
@@ -59,18 +59,18 @@ export default {
     },
 
     async update(emotion) {
-      if (!emotion) {
+      if (emotion) {
+        console.log(emotion);
         this.randomEmotion = emotion;
-      }
+      } else {
+        const emotions = (await emotionsJSON).default;
+        async function rand() {
+          const rand = Math.floor(Math.random() * emotions.length);
+          return emotions[rand];
+        }
 
-      console.log("&&&");
-      const emotions = (await emotionsJSON).default;
-      async function rand() {
-        const rand = Math.floor(Math.random() * emotions.length);
-        return emotions[rand];
+        this.randomEmotion = await rand();
       }
-
-      this.randomEmotion = await rand();
     },
   },
 };
