@@ -1,6 +1,7 @@
 {
   "collectCoverage": true,
   "collectCoverageFrom": ["src/api.js", "src/assets/emotions.json"],
+
   "coverageThreshold": {
     "globas": {
       "branches": 100,
@@ -8,7 +9,7 @@
       "lines": 60
     }
   },
-  "testEnvironment": "node",
+  "testEnvironment": "jsdom",
   "transform": {
     "\\.[jt]sx?$": "babel-jest"
   }

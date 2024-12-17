@@ -1,5 +1,5 @@
-export async function getWiki(name, baseUrl = "/") {
-  const response = fetch(baseUrl + "api/getWiki", {
+export async function getWiki(name) {
+  const response = fetch("api/getWiki", {
     method: "post",
     body: name,
   });
@@ -8,5 +8,3 @@ export async function getWiki(name, baseUrl = "/") {
 
   return await res.json();
 }
-
-//"Печаль" не проходит
