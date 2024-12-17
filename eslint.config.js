@@ -4,9 +4,15 @@ import globals from "globals";
 
 export default [
   {
+    env: {
+      node: true,
+      comminjs: true,
+    },
+  },
+  {
     languageOptions: {
-      globals: globals.jest
-    }
+      globals: globals.jest,
+    },
   },
   {
     name: "app/files-to-lint",
@@ -23,7 +29,7 @@ export default [
   {
     rules: {
       semi: 2,
-      quotes: ["error", "double"]
-    }
+      quotes: ["error", "double"],
+    },
   },
 ];
