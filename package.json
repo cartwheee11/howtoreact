@@ -18,6 +18,8 @@
     "wikijs": "^6.4.1"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.26.3",
+    "@babel/preset-env": "^7.26.0",
     "@eslint/js": "^9.14.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "eslint": "^9.14.0",
