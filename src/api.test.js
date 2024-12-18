@@ -3,7 +3,7 @@
   @jest-environment-options {"url": "https://localhost:3000/"}
 */
 
-import { test, expect, beforeAll } from "@jest/globals";
+import { test, expect } from "@jest/globals";
 import * as api from "./api.js";
 import emotions from "./assets/emotions.json";
 import "whatwg-fetch";

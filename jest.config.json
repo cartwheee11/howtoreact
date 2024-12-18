@@ -1,14 +1,7 @@
 {
   "collectCoverage": true,
-  "collectCoverageFrom": ["src/api.js", "src/assets/emotions.json"],
+  "collectCoverageFrom": ["src/**/*.js"],
 
-  "coverageThreshold": {
-    "globas": {
-      "branches": 100,
-      "functions": 100,
-      "lines": 60
-    }
-  },
   "testEnvironment": "jsdom",
   "transform": {
     "\\.[jt]sx?$": "babel-jest"

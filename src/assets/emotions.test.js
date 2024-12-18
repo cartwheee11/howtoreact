@@ -2,7 +2,7 @@ const wiki = require("wikijs").default;
 const wikiRU = "https://ru.wikipedia.org/w/api.php";
 const json = require("./emotions.json");
 
-const { expect, test } = require("@jest/globals");
+const { expect, test, beforeAll } = require("@jest/globals");
 
 // describe("", () => {
 let pages = json.slice();
@@ -28,7 +28,7 @@ beforeAll(async () => {
 
         setTimeout(() => {
           rec(id + 1);
-        }, 500);
+        }, 250);
       }
 
       rec(0);
