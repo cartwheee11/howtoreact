@@ -1,10 +1,17 @@
-<script setup>
-import { RouterView } from "vue-router";
+<script>
+
+export default {};
 </script>
 
 <template>
   <nav>👉 kak reagirovat 👈</nav>
-  <RouterView />
+
+  <router-view #="{ Component }">
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
+
   <footer>
     © fusionvibes666 2025;
   </footer>

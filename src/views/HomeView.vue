@@ -1,5 +1,6 @@
 <template>
   <section class="container">
+
     <div class="desc-block">
       <h2>Ваша эмоция: <br>{{ randomEmotion.toLowerCase() }}</h2>
       <p>
@@ -23,10 +24,8 @@
 </template>
 
 <script>
-// import wiki from 'wikijs';
 import * as api from "../api.js";
 const emotionsJSON = import("../assets/emotions.json");
-// const emotions = emotionsJSON;
 
 export default {
   data: () => {
